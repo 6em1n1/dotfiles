@@ -1,0 +1,40 @@
+# Disable DPMS turning off the screen
+xset -dpms
+xset s off
+
+# Disable bell
+xset -b
+
+# Enable zapping
+setxkbmap -option terminate:ctrl_alt_bksp
+
+# Enforce correct locales
+unset LC_ALL
+export LANG=en_US.UTF-8
+export LC_MESSAGES=C
+export LC_TIME=en_US.UTF-8
+
+# Firefox performance settings
+export MOZ_ACCELERATED=1
+export MOZ_WEBRENDER=1
+
+# Use XToolkit
+export AWT_TOOLKIT=XToolkit
+
+# Set background color
+xsetroot -solid "#000000"
+
+# Enable core dumps
+ulimit -c unlimited
+
+# Environment variables
+export ENV=$HOME/.zshrc
+export XCURSOR_PATH="~/.icons:~/.local/share/icons:${PREFIX}/lib/X11/icons"
+export XCURSOR_THEME=Bibata-Modern-Classic
+export XCURSOR_SIZE=24
+
+# Start i3
+mkdir -p ~/.local/share/i3
+echo "Starting at $(date)" >> ~/.local/share/i3/log
+exec /usr/local/bin/i3 -V -d all >> ~/.local/share/i3/log
+

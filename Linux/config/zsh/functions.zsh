@@ -11,12 +11,9 @@ mkcd() {
 
 # Go up n directories (default: 1)
 up() {
-    local steps=${1:-1}
-    local path=''
-    for i in $(seq 1 $steps); do
-        path+='../'
-    done
-    cd "$path"
+    local dir=''
+    repeat ${1:-1} dir+='../'
+    cd "$dir"
 }
 
 # Universal archive extractor

@@ -1,0 +1,119 @@
+# 6em1n1's .zshrc
+
+# Environment variables
+export PATH="$PATH:/home/gemini/.local/bin"
+export EDITOR='nvim'
+export VISUAL='nvim'
+export PAGER='less'
+export LESS='-RF'
+export MANROFFOPT="-c"
+export MANPAGER="sh -c 'col -bx | bat --color=always -l man -p | less -R'"
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+
+# Basic options
+setopt autocd                                       # change directory just by typing its name
+# setopt correct                                    # auto correct mistakes
+setopt interactivecomments                          # allow comments in interactive mode
+setopt magicequalsubst                              # enable filename expansion for arguments of the form ‘anything=expression’
+setopt nonomatch                                    # hide error message if there is no match for the pattern
+setopt notify                                       # report the status of background jobs immediately
+setopt numericglobsort                              # sort filenames numerically when it makes sense
+setopt promptsubst                                  # enable command substitution in prompt
+setopt autopushd                                    # push the current directory visited on the stack
+setopt pushdignoredups                              # do not store duplicates in the stack
+setopt pushdsilent                                  # do not print the directory stack after pushd or popd
+WORDCHARS='*?_-[]~=&;!#$%^(){}<>'                   # exclude / and . so ctrl+w stops at path separators
+
+# Keybindings
+bindkey -e                                          # emacs key bindings
+bindkey ' ' magic-space                             # do history expansion on space
+bindkey '^U' backward-kill-line                     # ctrl + U
+bindkey '^[[3;5~' kill-word                         # ctrl + Supr
+bindkey '^[[3~' delete-char                         # delete
+bindkey '^[[1;5C' forward-word                      # ctrl + ->
+bindkey '^[[1;5D' backward-word                     # ctrl + <-
+bindkey '^[[5~' beginning-of-buffer-or-history      # page up
+bindkey '^[[6~' end-of-buffer-or-history            # page down
+bindkey '^[[A' history-beginning-search-backward    # up arrow
+bindkey '^[[B' history-beginning-search-forward     # down arrow
+bindkey '^[[H' beginning-of-line                    # home
+bindkey '^[[F' end-of-line                          # end
+bindkey '^[[Z' undo                                 # shift + tab undo last action
+
+# Completion configuration
+autoload -Uz compinit vcs_info
+if [[ -n ~/.cache/zcompdump(#qN.mh+24) ]]; then
+  compinit -d ~/.cache/zcompdump
+else
+  compinit -C -d ~/.cache/zcompdump
+fi
+test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+export LS_COLORS="$LS_COLORS:ow=30;44:"             # fix ls color for folders with 777 permissions
+zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' rehash true
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+
+# History configuration
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=100000
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_VERIFY
+setopt INC_APPEND_HISTORY
+
+# Aliases
+alias ls='lsd'
+alias la='lsd -lah'
+alias lt='lsd --tree'
+alias cat='bat'
+alias history="history 0"
+alias grep='grep --color=auto'
+alias fgrep='grep -F --color=auto'
+alias egrep='grep -E --color=auto'
+alias diff='diff --color=auto'
+alias ip='ip --color=auto'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias d='dirs -v'
+for index ({1..9}) alias "$index"="cd +${index}"; unset index
+
+# Git prompt
+precmd_functions+=(vcs_info)
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr '%F{green}+%f'
+zstyle ':vcs_info:git:*' unstagedstr '%F{red}*%f'
+zstyle ':vcs_info:git:*' formats ' %F{yellow}(%b)%f%c%u'
+zstyle ':vcs_info:git:*' actionformats ' %F{yellow}(%b|%a)%f%c%u'
+
+# Prompt customization
+PROMPT='%B%F{cyan}%n%f%b@%B%F{cyan}%m %B%F{magenta}[%~]${vcs_info_msg_0_} %B%F{green}%# %f%b'
+RPROMPT='%B%F{red}%(0?||Exit code: %?)%f%b'
+
+# Functions
+source ~/.config/zsh/functions.zsh
+
+# Plugins
+eval "$(zoxide init zsh)"
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

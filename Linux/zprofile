@@ -1,0 +1,10 @@
+# 6em1n1's .zprofile
+
+# Clear screen after login
+clear
+
+# Start Hyprland (uwsm)
+if uwsm check may-start; then
+	exec uwsm start hyprland-uwsm.desktop
+fi
+

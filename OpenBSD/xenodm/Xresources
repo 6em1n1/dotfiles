@@ -1,0 +1,43 @@
+! $OpenBSD: Xresources
+
+! Translations
+xlogin*login.translations: #override \
+	<Key>F1: set-session-argument(failsafe) finish-field()\n\
+	<Key>Left: move-backward-character()\n\
+	<Key>Right: move-forward-character()\n\
+	<Key>Home: move-to-begining()\n\
+	<Key>End: move-to-end()\n\
+	Ctrl<Key>KP_Enter: set-session-argument(failsafe) finish-field()\n\
+	<Key>KP_Enter: set-session-argument() finish-field()\n\
+	Ctrl<Key>Return: set-session-argument(failsafe) finish-field()\n\
+	<Key>Return: set-session-argument() finish-field()
+
+! Prompts
+xlogin*namePrompt:		user:\040
+xlogin*passwdPrompt:		pass:\040
+
+! Graphics
+xlogin*greeting:
+xlogin*fail:			login incorrect
+xlogin*logoFileName:
+xlogin*x:			-1
+xlogin*y:			-1
+xlogin*borderWidth:		0
+xlogin*frameWidth:		0
+xlogin*innerFramesWidth:	0
+xlogin*background:		#000000
+xlogin*foreground:		#ffffff
+xlogin*promptColor:		#ffffff
+xlogin*inpColor:          	#000000
+xlogin*failColor:		#b00035
+xlogin*hiColor:           	#000000
+xlogin*shdColor:          	#000000
+xlogin*echoPasswd:		true
+xlogin*echoPasswdChar:		*
+
+! Fonts
+xlogin*greetFace:       Hack Nerd Font Mono:size=14
+xlogin*face:            Hack Nerd Font Mono:size=14
+xlogin*promptFace:      Hack Nerd Font Mono:size=14
+xlogin*failFace:        Hack Nerd Font Mono:size=14
+

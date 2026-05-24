@@ -10,14 +10,15 @@ set $menu rofi
 # Graphical settings
 gaps inner 5
 default_border pixel 2
- client.focused #ffffff #000000 #ffffff #ffffff #ffffff
- client.unfocused #d3d3d3 #000000 #d3d3d3 #d3d3d3 #d3d3d3
+ client.focused #5294e2 #000000 #5294e2 #5294e2 #5294e2
+ client.unfocused #7c818c #000000 #7c818c #7c818c #7c818c
  client.background #000000
 
 # Font
 font pango:Hack Nerd Font Mono 11
 
 # Autostart programs
+exec --no-startup-id feh --bg-fill /home/gemini/Pictures/Wallpapers/summer-time-night.jpg
 exec --no-startup-id xbanish -t 3 &
 exec --no-startup-id picom &
 

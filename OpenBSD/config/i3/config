@@ -55,7 +55,7 @@ bindsym $mod+n exec $browser --private-window
 bindsym $mod+q kill
 
 # Start menu
-bindsym $mod+m exec "rofi -modi drun,run -show drun"
+bindsym $mod+m exec "rofi -show drun"
 
 # Change focus
 bindsym $mod+j focus left

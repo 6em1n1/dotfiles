@@ -99,8 +99,8 @@ for index ({1..9}) alias "$index"="cd +${index}"; unset index
 precmd_functions+=(vcs_info)
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr '%F{green}+%f'
-zstyle ':vcs_info:git:*' unstagedstr '%F{red}*%f'
+zstyle ':vcs_info:git:*' stagedstr '%F{green} +%f'
+zstyle ':vcs_info:git:*' unstagedstr '%F{red} *%f'
 zstyle ':vcs_info:git:*' formats ' %F{yellow}(%b)%f%c%u'
 zstyle ':vcs_info:git:*' actionformats ' %F{yellow}(%b|%a)%f%c%u'
 

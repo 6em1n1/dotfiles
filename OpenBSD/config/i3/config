@@ -46,7 +46,7 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec $terminal
 
 # Start a task manager
-bindsym $mod+t exec $terminal -e $taskmanager -d 5i
+bindsym $mod+t exec $terminal -e $taskmanager -d 5
 
 # Start a text editor
 bindsym $mod+e exec $terminal -e $editor

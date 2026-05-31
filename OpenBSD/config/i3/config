@@ -3,6 +3,7 @@
 # Set common variables
 set $mod Mod4
 set $terminal alacritty
+set $editor nvim
 set $browser firefox
 set $taskmanager htop
 set $menu rofi
@@ -45,7 +46,10 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec $terminal
 
 # Start a task manager
-bindsym $mod+t exec $terminal -e $taskmanager -d 5
+bindsym $mod+t exec $terminal -e $taskmanager -d 5i
+
+# Start a text editor
+bindsym $mod+e exec $terminal -e $editor
 
 # Start a web browser
 bindsym $mod+b exec $browser
@@ -93,7 +97,7 @@ bindsym $mod+Shift+f fullscreen toggle
 # Change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+d layout toggle split
 
 # Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle

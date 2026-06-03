@@ -47,4 +47,4 @@ configuration {
 }
 
 /* Import theme */
-@theme "arc-dark"
+@theme "graphite-green"

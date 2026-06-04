@@ -83,7 +83,7 @@ zstyle ':vcs_info:git:*' formats ' %F{cyan}(%b)%f%c%u'
 zstyle ':vcs_info:git:*' actionformats ' %F{cyan}(%b|%a)%f%c%u'
 
 # Prompt customization
-PROMPT='%B%F{white}%n%f%b@%B%F{white}%m%f%b %B%F{yellow}[%~]${vcs_info_msg_0_} %F{green}$ %f%b'
+PROMPT='%B%F{GREEN}%n%f%b@%B%F{GREEN}%m%f%b %B%F{yellow}[%~]${vcs_info_msg_0_} %F{green}$ %f%b'
 RPROMPT='%B%F{red}%(0?||Exit code: %?)%f%b'
 
 # Aliases

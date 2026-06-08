@@ -1,0 +1,256 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Cantarell, "Symbols Nerd Font Mono", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+
+window#waybar {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+window#waybar > box {
+    padding: 0;
+    margin: 0;
+    min-height: 0;
+}
+
+label {
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Left / Center / Right groups */
+.modules-left,
+.modules-center,
+.modules-right {
+    margin: 0;
+    padding: 0;
+}
+
+/* Workspaces */
+#workspaces {
+    margin: 0;
+    padding: 0;
+}
+
+#workspaces button {
+    padding: 0 4px;
+    min-width: 20px;
+    background: transparent;
+    color: #ffffff;
+    font-weight: normal;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+#workspaces button.empty {
+    color: #555555;
+}
+
+#workspaces button.active {
+    color: #ffffff;
+    font-weight: bold;
+    background: transparent;
+}
+
+#workspaces button.urgent {
+    color: #ffffff;
+    background: transparent;
+}
+
+/* Clock */
+#clock {
+    padding: 0px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Modules (both bars) */
+#cpu,
+#temperature,
+#memory,
+#disk,
+#custom-vpn,
+#custom-gpu,
+#custom-gpu-temp,
+#custom-gpu-vram,
+#custom-diskio,
+#custom-bandwidth,
+#custom-pacman,
+#custom-systemd-failed,
+#network {
+    padding: 0 10px;
+    color: #ffffff;
+}
+
+#tray {
+    padding: 0 4px;
+    color: #ffffff;
+}
+
+#pulseaudio,
+#backlight,
+#power-profiles-daemon,
+#battery,
+#idle_inhibitor {
+    padding: 0 4px;
+    color: #ffffff;
+}
+
+#temperature.critical {
+    color: #aaaaaa;
+}
+
+#power-profiles-daemon.power-saver {
+    color: #aaaaaa;
+}
+
+#power-profiles-daemon.performance {
+    color: #ffffff;
+}
+
+#idle_inhibitor.activated {
+    color: #ffffff;
+}
+#idle_inhibitor.deactivated {
+    color: #555555;
+}
+
+
+#privacy {
+    padding: 0 4px;
+}
+
+#custom-pacman.pending {
+    color: #ffffff;
+}
+
+#custom-pacman.updated {
+    color: #555555;
+}
+
+#custom-systemd-failed.failed {
+    color: #ffffff;
+}
+
+#custom-systemd-failed.ok {
+    color: #ffffff;
+}
+
+#custom-vpn.disconnected {
+    color: #555555;
+}
+
+#pulseaudio.muted {
+    color: #aaaaaa;
+}
+
+#battery.warning {
+    color: #aaaaaa;
+}
+
+#battery.critical {
+    color: #ffffff;
+    background-color: #333333;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: steps(1);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to { background-color: #000000; }
+}
+
+
+/* CPU and GPU pair grouping */
+#cpu {
+    padding-right: 2px;
+}
+
+#temperature {
+    padding-left: 2px;
+}
+
+#custom-gpu {
+    padding-right: 2px;
+}
+
+#custom-gpu-temp {
+    padding-left: 2px;
+}
+
+/* ── Bottom bar ───────────────────────────────────────────── */
+window#waybar.bottom,
+window#waybar.bottom * {
+    font-family: "Hack Nerd Font Mono", "Hack", "Noto Sans Mono", "Adwaita Mono", "Symbols Nerd Font Mono", monospace;
+    font-size: 12px;
+}
+
+window#waybar.bottom .modules-left {
+    padding: 0 0 0 5px;
+}
+
+window#waybar.bottom .modules-right {
+    padding: 0 5px 0 0;
+}
+
+window#waybar.bottom #custom-cpu-combined,
+window#waybar.bottom #custom-gpu-combined,
+window#waybar.bottom #memory,
+window#waybar.bottom #custom-gpu-vram,
+window#waybar.bottom #disk,
+window#waybar.bottom #custom-diskio,
+window#waybar.bottom #custom-vpn,
+window#waybar.bottom #network,
+window#waybar.bottom #custom-bandwidth,
+window#waybar.bottom #custom-pacman,
+window#waybar.bottom #custom-systemd-failed,
+window#waybar.bottom #custom-lda,
+window#waybar.bottom #custom-pwr,
+window#waybar.bottom #custom-vtg {
+    padding: 0 4px;
+}
+
+window#waybar.bottom #custom-cpu-combined {
+    padding-left: 0;
+}
+
+window#waybar.bottom #custom-pacman {
+    padding-right: 0;
+}
+
+window#waybar.bottom #custom-cpu-combined   { min-width: 108px; }
+window#waybar.bottom #custom-gpu-combined   { min-width: 108px; }
+window#waybar.bottom #memory                { min-width: 79px; }
+window#waybar.bottom #custom-gpu-vram       { min-width: 79px; }
+window#waybar.bottom #disk                  { min-width: 79px; }
+window#waybar.bottom #custom-vpn            { min-width: 79px; }
+window#waybar.bottom #network               { min-width: 79px; }
+window#waybar.bottom #custom-pacman         { min-width: 79px; }
+window#waybar.bottom #custom-systemd-failed { min-width: 79px; }
+window#waybar.bottom #custom-lda            { min-width: 79px; }
+window#waybar.bottom #custom-pwr            { min-width: 79px; }
+window#waybar.bottom #custom-vtg            { min-width: 79px; }
+
+/* Tooltips */
+tooltip {
+    background-color: #000000;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    border-radius: 0;
+}
+
+tooltip label {
+    color: #ffffff;
+}

@@ -1,0 +1,229 @@
+[
+    {
+        "name": "top",
+        "layer": "top",
+        "position": "top",
+        "height": 28,
+        "spacing": 0,
+        "modules-left": ["hyprland/workspaces"],
+        "modules-center": ["clock"],
+        "modules-right": ["privacy", "tray", "idle_inhibitor", "power-profiles-daemon", "backlight", "pulseaudio", "battery"],
+        "hyprland/workspaces": {
+            "format": "{id}",
+            "on-click": "activate",
+            "sort-by-number": true,
+            "persistent-workspaces": {
+                "*": 10
+            }
+        },
+        "clock": {
+            "interval": 1,
+            "format": "{:%H:%M:%S}",
+            "format-alt": "{:%A, %B %d %Y}",
+            "tooltip-format": "<tt><small>{calendar}</small></tt>"
+        },
+        "privacy": {
+            "icon-spacing": 4,
+            "icon-size": 14,
+            "transition-duration": 250,
+            "modules": [
+                {
+                    "type": "screenshare",
+                    "tooltip": true,
+                    "tooltip-icon-size": 24
+                },
+                {
+                    "type": "audio-in",
+                    "tooltip": true,
+                    "tooltip-icon-size": 24
+                }
+            ]
+        },
+        "idle_inhibitor": {
+            "format": "{icon}",
+            "format-icons": {
+                "activated": "󰅶",
+                "deactivated": "󰤄"
+            },
+            "tooltip-format-activated": "Idle inhibitor: activated",
+            "tooltip-format-deactivated": "Idle inhibitor: deactivated"
+        },
+        "power-profiles-daemon": {
+            "format": "{icon}",
+            "format-icons": {
+                "default": "󰗑",
+                "performance": "󱐋",
+                "balanced": "󰗑",
+                "power-saver": "󰌪"
+            },
+            "tooltip-format": "Power profile: {profile}\nDriver: {driver}"
+        },
+        "backlight": {
+            "format": "\uF185",
+            "tooltip-format": "{percent}%",
+            "on-scroll-up": "brightnessctl -e4 -n2 set 5%+",
+            "on-scroll-down": "brightnessctl -e4 -n2 set 5%-"
+        },
+        "pulseaudio": {
+            "format": "\uF028",
+            "format-muted": "\uF026",
+            "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+            "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+",
+            "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+            "tooltip-format": "{volume}%\n{desc}"
+        },
+        "battery": {
+            "bat": "BAT0",
+            "format": "{icon} {capacity}%",
+            "format-charging": "\uF0E7 {capacity}%",
+            "format-plugged": "\uF1E6 {capacity}%",
+            "format-icons": [
+                "\uF244",
+                "\uF243",
+                "\uF242",
+                "\uF241",
+                "\uF240"
+            ],
+            "states": {
+                "warning": 30,
+                "critical": 15
+            },
+            "tooltip-format": "{timeTo}\nPower: {power}W"
+        },
+        "tray": {
+            "spacing": 8,
+            "icon-size": 15
+        }
+    },
+    {
+        "name": "bottom",
+        "layer": "top",
+        "position": "bottom",
+        "height": 18,
+        "spacing": 0,
+        "modules-left": [
+            "custom/cpu-combined",
+            "custom/gpu-combined",
+            "memory#ram",
+            "custom/gpu-vram",
+            "memory#swap",
+            "disk#root",
+            "disk#home",
+            "network",
+            "custom/vpn",
+            "custom/systemd-failed",
+            "custom/pwr",
+            "custom/vtg"
+        ],
+        "modules-right": [
+            "custom/lda",
+            "custom/pacman"
+        ],
+        "custom/cpu-combined": {
+            "exec": "~/.config/waybar/scripts/cpu-combined.sh",
+            "interval": 2,
+            "escape": false,
+            "align": 0
+        },
+        "custom/gpu-combined": {
+            "exec": "~/.config/waybar/scripts/gpu-combined.sh",
+            "interval": 2,
+            "escape": false,
+            "align": 0
+        },
+        "memory#ram": {
+            "interval": 2,
+            "align": 0,
+            "format": "<b>MEM</b>  {percentage}%",
+            "tooltip-format": "Used: {used:0.1f}G / {total:0.1f}G"
+        },
+        "memory#swap": {
+            "interval": 2,
+            "align": 0,
+            "format": "<b>SWP</b>  {swapPercentage}%",
+            "tooltip-format": "Used: {swapUsed:0.1f}G / {swapTotal:0.1f}G"
+        },
+        "disk#root": {
+            "interval": 30,
+            "path": "/",
+            "align": 0,
+            "format": "<b>DSK</b>  {percentage_used}%",
+            "tooltip-format": "/ — {used} / {total}"
+        },
+        "disk#home": {
+            "interval": 30,
+            "path": "/home",
+            "align": 0,
+            "format": "<b>HOM</b>  {percentage_used}%",
+            "tooltip-format": "/home — {used} / {total}"
+        },
+        "network": {
+            "interface": "wlp2s0",
+            "align": 0,
+            "format-wifi": "<b>NET</b>  OK",
+            "format-ethernet": "<b>NET</b>  OK",
+            "format-linked": "<b>NET</b>  OK",
+            "format-disconnected": "<b>NET</b>  NO",
+            "tooltip-format": "{ifname}: {ipaddr}\n{essid}\nSignal: {signalStrength}%"
+        },
+        "custom/gpu-vram": {
+            "exec": "~/.config/waybar/scripts/gpu-vram.sh",
+            "interval": 2,
+            "escape": false,
+            "align": 0
+        },
+        "custom/diskio": {
+            "exec": "~/.config/waybar/scripts/diskio.sh",
+            "interval": 2,
+            "escape": false,
+            "align": 0
+        },
+        "custom/bandwidth": {
+            "exec": "~/.config/waybar/scripts/bandwidth.sh",
+            "interval": 2,
+            "escape": false,
+            "align": 0
+        },
+        "custom/pacman": {
+            "exec": "~/.config/waybar/scripts/pacman-updates.sh",
+            "interval": 600,
+            "align": 1,
+            "escape": false,
+            "return-type": "json",
+            "signal": 8
+        },
+        "custom/systemd-failed": {
+            "exec": "~/.config/waybar/scripts/systemd-failed.sh",
+            "interval": 15,
+            "align": 0,
+            "escape": false,
+            "return-type": "json"
+        },
+        "custom/pwr": {
+            "exec": "bash ~/.config/waybar/scripts/pwr.sh",
+            "interval": 5,
+            "align": 0,
+            "escape": false
+        },
+        "custom/vtg": {
+            "exec": "bash ~/.config/waybar/scripts/vtg.sh",
+            "interval": 5,
+            "align": 0,
+            "escape": false
+        },
+        "custom/lda": {
+            "exec": "bash ~/.config/waybar/scripts/lda.sh",
+            "interval": 2,
+            "align": 1,
+            "escape": false
+        },
+        "custom/vpn": {
+            "exec": "~/.config/waybar/scripts/vpn.sh",
+            "interval": 5,
+            "align": 0,
+            "escape": false,
+            "return-type": "json",
+            "on-click": "uwsm app -- protonvpn-app"
+        }
+    }
+]

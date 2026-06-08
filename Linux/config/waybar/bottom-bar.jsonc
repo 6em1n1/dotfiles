@@ -1,0 +1,90 @@
+{
+    // ─── BOTTOM BAR ────────────────────────────────────────────────────────
+    "name": "bottom",
+    "layer": "top",
+    "position": "bottom",
+    "height": 18,
+    "spacing": 0,
+
+    "modules-left": ["custom/cpu-combined", "custom/gpu-combined", "memory#ram", "custom/gpu-vram", "memory#swap", "disk#root", "disk#home", "custom/diskio", "custom/vpn", "network", "custom/bandwidth", "custom/pacman", "custom/systemd-failed"],
+
+    "custom/cpu-combined": {
+        "exec": "~/.config/waybar/scripts/cpu-combined.sh",
+        "interval": 2
+    },
+
+    "custom/gpu-combined": {
+        "exec": "~/.config/waybar/scripts/gpu-combined.sh",
+        "interval": 2
+    },
+
+    "memory#ram": {
+        "interval": 2,
+        "format": "MEM={percentage}%",
+        "tooltip-format": "Used: {used:0.1f}G / {total:0.1f}G"
+    },
+
+    "memory#swap": {
+        "interval": 2,
+        "format": "SWP={swapPercentage}%",
+        "tooltip-format": "Used: {swapUsed:0.1f}G / {swapTotal:0.1f}G"
+    },
+
+    "disk#root": {
+        "interval": 30,
+        "path": "/",
+        "format": "DSK={percentage_used}%",
+        "tooltip-format": "/ — {used} / {total}"
+    },
+
+    "disk#home": {
+        "interval": 30,
+        "path": "/home",
+        "format": "HOM={percentage_used}%",
+        "tooltip-format": "/home — {used} / {total}"
+    },
+
+    "network": {
+        "interface": "wlp2s0",
+        "format-wifi": "NET={ipaddr}",
+        "format-ethernet": "NET={ipaddr}",
+        "format-disconnected": "NET=off",
+        "format-linked": "NET={ifname}",
+        "tooltip-format": "{essid}\n{ifname}: {ipaddr}\nSignal: {signalStrength}%"
+    },
+
+    "custom/gpu-vram": {
+        "exec": "~/.config/waybar/scripts/gpu-vram.sh",
+        "interval": 2
+    },
+
+    "custom/diskio": {
+        "exec": "~/.config/waybar/scripts/diskio.sh",
+        "interval": 2
+    },
+
+    "custom/bandwidth": {
+        "exec": "~/.config/waybar/scripts/bandwidth.sh",
+        "interval": 2
+    },
+
+    "custom/pacman": {
+        "exec": "~/.config/waybar/scripts/pacman-updates.sh",
+        "interval": 600,
+        "return-type": "json",
+        "signal": 8
+    },
+
+    "custom/systemd-failed": {
+        "exec": "~/.config/waybar/scripts/systemd-failed.sh",
+        "interval": 15,
+        "return-type": "json"
+    },
+
+    "custom/vpn": {
+        "exec": "~/.config/waybar/scripts/vpn.sh",
+        "interval": 5,
+        "return-type": "json",
+        "on-click": "uwsm app -- protonvpn-app"
+    }
+}

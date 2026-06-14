@@ -24,6 +24,7 @@ font pango:Hack Nerd Font Mono 8
 exec --no-startup-id feh --bg-fill $wallpaper
 exec --no-startup-id xbanish -t 3 &
 exec --no-startup-id picom &
+exec --no-startup-id dunst &
 
 # Start XDG autostart .desktop files using dex
 # exec --no-startup-id dex --autostart --environment i3

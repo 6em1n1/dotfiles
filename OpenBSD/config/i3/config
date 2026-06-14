@@ -12,7 +12,7 @@ set $wallpaper /home/gemini/Pictures/Wallpapers/openbsd_tokyonight.png
 
 # Graphical settings
 gaps inner 5
-default_border pixel 2
+default_border pixel 1
  client.focused #0db9d7 #000000 #0db9d7 #0db9d7 #0db9d7
  client.unfocused #449dab #000000 #449dab #449dab #449dab
  client.background #000000

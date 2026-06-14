@@ -5,21 +5,23 @@ set $mod Mod4
 set $terminal alacritty
 set $editor nvim
 set $browser firefox
-set $taskmanager htop
+set $taskmanager btop
+set $irc irssi
 set $menu rofi
+set $wallpaper /home/gemini/Pictures/Wallpapers/openbsd_tokyonight.png
 
 # Graphical settings
 gaps inner 5
 default_border pixel 2
- client.focused #00ff00 #000000 #00ff00 #00ff00 #00ff00
- client.unfocused #00cd00 #000000 #00cd00 #00cd00 #00cd00
+ client.focused #0db9d7 #000000 #0db9d7 #0db9d7 #0db9d7
+ client.unfocused #449dab #000000 #449dab #449dab #449dab
  client.background #000000
 
 # Font
-font pango:Hack Nerd Font Mono 11
+font pango:Hack Nerd Font Mono 8
 
 # Autostart programs
-# exec --no-startup-id feh --bg-fill /home/gemini/Pictures/Wallpapers/summer-time-night.jpg
+exec --no-startup-id feh --bg-fill $wallpaper
 exec --no-startup-id xbanish -t 3 &
 exec --no-startup-id picom &
 
@@ -27,7 +29,7 @@ exec --no-startup-id picom &
 # exec --no-startup-id dex --autostart --environment i3
 
 # Screen Locker
-#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i $wallpaper -e -f
 
 # Use pactl to adjust volume in pulseaudio
 #set $refresh_i3status pkill -SIGUSR1 i3status
@@ -46,7 +48,7 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec $terminal
 
 # Start a task manager
-bindsym $mod+t exec $terminal -e $taskmanager -d 5
+bindsym $mod+t exec $terminal -e $taskmanager
 
 # Start a text editor
 bindsym $mod+e exec $terminal -e $editor
@@ -55,11 +57,17 @@ bindsym $mod+e exec $terminal -e $editor
 bindsym $mod+b exec $browser
 bindsym $mod+n exec $browser --private-window
 
+# Start an IRC client
+bindsym $mod+c exec $terminal -e $irc
+
 # Kill focused window
 bindsym $mod+q kill
 
 # Start menu
 bindsym $mod+m exec "rofi -show drun"
+
+# Lock screen
+bindsym $mod+x exec i3lock --nofork -i $wallpaper -e -f
 
 # Change focus
 bindsym $mod+j focus left
@@ -183,21 +191,21 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar
 bar {
-        status_command i3status
+  status_command i3status
 	position top
 	i3bar_command i3bar --transparency
 	separator_symbol " | "
-	padding 0 5px 0 5px
+	padding 0 11px 0 5px
 	colors {
         	background #00000000
-        	statusline #ffffff
-        	separator #666666
+        	statusline #acb0d0
+        	separator #0db9d7
 
-        	focused_workspace  #4c7899 #285577 #ffffff
-        	active_workspace   #333333 #5f676a #ffffff
-        	inactive_workspace #333333 #222222 #888888
-        	urgent_workspace   #2f343a #900000 #ffffff
-        	binding_mode       #2f343a #900000 #ffffff
+        	focused_workspace  #4c789900 #28557700 #ffffff
+        	active_workspace   #33333300 #5f676a00 #ffffff
+        	inactive_workspace #33333300 #22222200 #787c99
+        	urgent_workspace   #2f343a00 #90000000 #ffffff
+        	binding_mode       #2f343a00 #90000000 #acb0d0
 	}
 }
 

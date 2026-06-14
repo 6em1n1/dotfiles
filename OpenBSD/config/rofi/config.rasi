@@ -47,4 +47,4 @@ configuration {
 }
 
 /* Import theme */
-@theme "graphite-green"
+@theme "tokyonight-dark"

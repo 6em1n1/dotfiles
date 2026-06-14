@@ -1,0 +1,229 @@
+* {
+    bg-deep:      #1A1B2680;
+    bg-window:    #1A1B26e6;
+    bg-soft:      #1A1B26cc;
+    bg-element:   #1A1B26b3;
+    bg-selected:  #5294E233;
+
+    border:       #0DB9D7;
+    border-soft:  #449DAB;
+
+    fg:           #ACB0D0;
+    fg-dim:       #787C99;
+    fg-muted:     #5C6370;
+
+    accent:       #0DB9D7;
+    accent-2:     #449DAB;
+    accent-3:     #7AA2F7;
+
+    urgent:       #0DB9D7;
+    success:      #B9F27C;
+    warning:      #FF9E64;
+
+    background-color: transparent;
+    text-color:       @fg;
+
+    font: "Hack Nerd Font Mono 13";
+}
+
+window {
+    transparency:     "real";
+    background-color: @bg-window;
+    border:           2px solid;
+    border-color:     @accent;
+    border-radius:    14px;
+    padding:          14px;
+    width:            800px;
+    location:         center;
+    anchor:           center;
+    cursor:           default;
+}
+
+mainbox {
+    background-color: transparent;
+    spacing:          10px;
+    padding:          0;
+    children:         [ inputbar, message, listview, mode-switcher ];
+}
+
+inputbar {
+    background-color: @bg-soft;
+    text-color:       @fg;
+    border:           1px solid;
+    border-color:     @border;
+    border-radius:    10px;
+    padding:          8px 12px;
+    spacing:          10px;
+    children:         [ prompt, entry, num-filtered-rows, textbox-num-sep, num-rows ];
+}
+
+prompt {
+    background-color: transparent;
+    text-color:       @accent;
+    font:             "Hack Nerd Font Mono Bold 11";
+    padding:          0 4px 0 0;
+}
+
+entry {
+    background-color:  transparent;
+    text-color:        @fg;
+    placeholder:       "  Search…";
+    placeholder-color: @fg-dim;
+    cursor:            text;
+    expand:            true;
+}
+
+num-filtered-rows {
+    background-color: transparent;
+    text-color:       @accent-2;
+    font:             "Hack Nerd Font Mono 10";
+}
+
+textbox-num-sep {
+    background-color: transparent;
+    text-color:       @fg-muted;
+    expand:           false;
+    str:              "/";
+    font:             "Hack Nerd Font Mono 10";
+}
+
+num-rows {
+    background-color: transparent;
+    text-color:       @fg-dim;
+    font:             "Hack Nerd Font Mono 10";
+}
+
+message {
+    background-color: @bg-soft;
+    border:           1px solid;
+    border-color:     @border-soft;
+    border-radius:    10px;
+    padding:          8px 12px;
+}
+
+textbox {
+    background-color: transparent;
+    text-color:       @fg;
+}
+
+error-message {
+    background-color: #E5393522;
+    border-color:     @urgent;
+    text-color:       @urgent;
+    border:           1px solid;
+    border-radius:    10px;
+    padding:          8px 12px;
+}
+
+listview {
+    background-color: transparent;
+    border:           0;
+    padding:          2px 0;
+    spacing:          3px;
+    lines:            10;
+    columns:          1;
+    fixed-height:     true;
+    dynamic:          true;
+    cycle:            true;
+    scrollbar:        true;
+    cursor:           default;
+}
+
+scrollbar {
+    background-color: transparent;
+    handle-color:     @accent;
+    handle-width:     4px;
+    border:           0;
+    border-radius:    10px;
+    margin:           0 0 0 6px;
+}
+
+element {
+    background-color: transparent;
+    text-color:       @fg;
+    border:           0;
+    border-radius:    8px;
+    padding:          7px 10px;
+    spacing:          10px;
+    cursor:           pointer;
+}
+
+element normal.normal    { background-color: transparent;  text-color: @fg;      }
+element normal.urgent    { background-color: #E5393526;    text-color: @urgent;  }
+element normal.active    { background-color: #4CAF5026;    text-color: @success; }
+
+element alternate.normal { background-color: transparent;  text-color: @fg;      }
+element alternate.urgent { background-color: #E5393526;    text-color: @urgent;  }
+element alternate.active { background-color: #4CAF5026;    text-color: @success; }
+
+element selected.normal {
+    background-color: @bg-selected;
+    text-color:       #ffffff;
+    border:           1px solid;
+    border-color:     @accent;
+    border-radius:    8px;
+}
+
+element selected.urgent {
+    background-color: #E539354d;
+    text-color:       #ffffff;
+    border:           1px solid;
+    border-color:     @urgent;
+    border-radius:    8px;
+}
+
+element selected.active {
+    background-color: #4CAF504d;
+    text-color:       #ffffff;
+    border:           1px solid;
+    border-color:     @success;
+    border-radius:    8px;
+}
+
+element-icon {
+    background-color: transparent;
+    size:             1.3em;
+    cursor:           inherit;
+    padding:          0 2px 0 0;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    cursor:           inherit;
+    vertical-align:   0.5;
+    horizontal-align: 0.0;
+}
+
+mode-switcher {
+    background-color: transparent;
+    spacing:          6px;
+    padding:          4px 0 0 0;
+}
+
+button {
+    background-color: @bg-soft;
+    text-color:       @fg-dim;
+    border:           1px solid;
+    border-color:     @border-soft;
+    border-radius:    9999px;
+    padding:          5px 14px;
+    margin:           1px;
+    cursor:           pointer;
+    font:             "Hack Nerd Font Mono 11";
+    horizontal-align: 0.5;
+    vertical-align:   0.5;
+    expand:           true;
+}
+
+button selected {
+    background-color: @bg-selected;
+    text-color:       #ffffff;
+    border:           1px solid;
+    border-color:     @accent;
+}
+
+case-indicator {
+    background-color: transparent;
+    text-color:       @fg-muted;
+}

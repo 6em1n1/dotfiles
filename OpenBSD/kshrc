@@ -1,0 +1,11 @@
+# Source ksh global configuration file
+. /etc/ksh.kshrc
+
+# History options
+HISTFILE=$HOME/.ksh_history
+HISTSIZE=10000
+HISTCONTROL=ignoredups:ignorespace:erasedups
+
+# Prompt customization
+PS1="\u@\h [\w] $ "
+

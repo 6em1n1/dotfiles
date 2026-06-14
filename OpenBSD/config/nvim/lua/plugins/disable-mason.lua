@@ -2,6 +2,6 @@
 -- LSP servers, formatters and linters must be installed manually on OpenBSD
 -- and be available in $PATH.
 return {
-  { "williamboman/mason.nvim", enabled = false },
-  { "williamboman/mason-lspconfig.nvim", enabled = false },
+  { "mason-org/mason.nvim", enabled = false },
+  { "mason-org/mason-lspconfig.nvim", enabled = false },
 }

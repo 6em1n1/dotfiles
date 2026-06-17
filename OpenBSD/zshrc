@@ -3,8 +3,8 @@
 # Environment variables
 export PATH="$PATH:/home/gemini/.local/bin"
 export EDITOR='nvim'
-export VISUAL='nvim'
-export PAGER="most"
+export VISUAL='vi'
+export PAGER="less"
 export MANPAGER="most"
 export LESS="-R"
 # export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
@@ -88,7 +88,8 @@ RPROMPT='%B%F{red}%(0?||Exit code: %?)%f%b'
 
 # Aliases
 alias ls='lsd'
-alias la='lsd -lah'
+alias la='lsd -la'
+alias lr='lsd -laR'
 alias lt='lsd --tree'
 alias cat='bat'
 alias history="history 0"

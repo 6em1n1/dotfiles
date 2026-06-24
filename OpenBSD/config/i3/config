@@ -2,7 +2,7 @@
 
 # Set common variables
 set $mod Mod4
-set $terminal alacritty
+set $terminal kitty
 set $editor nvim
 set $browser firefox
 set $taskmanager btop
@@ -12,13 +12,13 @@ set $wallpaper /home/gemini/Pictures/Wallpapers/openbsd_tokyonight.png
 
 # Graphical settings
 gaps inner 5
-default_border pixel 1
+default_border pixel 2
  client.focused #0db9d7 #000000 #0db9d7 #0db9d7 #0db9d7
  client.unfocused #449dab #000000 #449dab #449dab #449dab
  client.background #000000
 
 # Font
-font pango:Hack Nerd Font Mono 8
+font pango:Hack Nerd Font Mono 10
 
 # Autostart programs
 exec --no-startup-id feh --bg-fill $wallpaper

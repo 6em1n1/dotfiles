@@ -1,0 +1,81 @@
+# Theme: Kali-Hack
+# By: Oz (customized for gemini)
+
+# Main bg
+theme[main_bg]="#040115"
+
+# Main text color
+theme[main_fg]="#d9ddf1"
+
+# Title color for boxes
+theme[title]="#d9ddf1"
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="#7aa2f7"
+
+# Background color of selected item in processes box
+theme[selected_bg]="#2550a3"
+
+# Foreground color of selected item in processes box
+theme[selected_fg]="#ffffff"
+
+# Color of inactive/disabled text
+theme[inactive_fg]="#6c688f"
+
+# Misc colors for processes box including mini cpu graphs, details memory graph and details status text
+theme[proc_misc]="#c0caf5"
+
+# Cpu box outline color
+theme[cpu_box]="#2f66ca"
+
+# Memory/disks box outline color
+theme[mem_box]="#2f66ca"
+
+# Net up/down box outline color
+theme[net_box]="#2f66ca"
+
+# Processes box outline color
+theme[proc_box]="#2f66ca"
+
+# Box divider line and small boxes line color
+theme[div_line]="#2550a3"
+
+# Temperature graph colors
+theme[temp_start]="#308e63"
+theme[temp_mid]="#fd7d00"
+theme[temp_end]="#bf1717"
+
+# CPU graph colors
+theme[cpu_start]="#308e63"
+theme[cpu_mid]="#fd7d00"
+theme[cpu_end]="#bf1717"
+
+# Mem/Disk free meter
+theme[free_start]="#308e63"
+theme[free_mid]="#fd7d00"
+theme[free_end]="#bf1717"
+
+# Mem/Disk cached meter
+theme[cached_start]="#308e63"
+theme[cached_mid]="#fd7d00"
+theme[cached_end]="#bf1717"
+
+# Mem/Disk available meter
+theme[available_start]="#308e63"
+theme[available_mid]="#fd7d00"
+theme[available_end]="#bf1717"
+
+# Mem/Disk used meter
+theme[used_start]="#308e63"
+theme[used_mid]="#fd7d00"
+theme[used_end]="#bf1717"
+
+# Download graph colors
+theme[download_start]="#4f4d6b"
+theme[download_mid]="#2f66ca"
+theme[download_end]="#7aa2f7"
+
+# Upload graph colors
+theme[upload_start]="#4f4d6b"
+theme[upload_mid]="#2f66ca"
+theme[upload_end]="#7aa2f7"

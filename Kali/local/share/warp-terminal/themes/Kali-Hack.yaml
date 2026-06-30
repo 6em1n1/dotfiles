@@ -1,0 +1,25 @@
+name: Kali-Hack
+accent: '#7aa2f7'
+cursor: '#d9ddf1'
+background: '#02010f'
+foreground: '#d9ddf1'
+details: darker
+terminal_colors:
+  bright:
+    black: '#111030'
+    blue: '#4b82e6'
+    cyan: '#6b6990'
+    green: '#47a77a'
+    magenta: '#b0adcc'
+    red: '#d44a4a'
+    white: '#d9ddf1'
+    yellow: '#ff9d3a'
+  normal:
+    black: '#02010f'
+    blue: '#2f66ca'
+    cyan: '#4f4d6b'
+    green: '#308e63'
+    magenta: '#9491b2'
+    red: '#bf1717'
+    white: '#c0caf5'
+    yellow: '#fd7d00'

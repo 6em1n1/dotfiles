@@ -1,0 +1,91 @@
+log_level = "warn"
+outputs = "Active"
+position = "Top"
+region   = "es-ES"
+app_launcher_cmd = "rofi -show drun -run-command 'uwsm app -- {cmd}'"
+
+[modules]
+left = [ [ "Workspaces", "WindowTitle", "MediaPlayer" ] ]
+center = [ "Tempo" ]
+right = [ "SystemInfo", "Tray", [ "Privacy", "Settings" ] ]
+
+[updates]
+check_cmd = "apt list --upgradable"
+update_cmd = 'kitty -e zsh -c "sudo apt full-upgrade; echo Done - Press enter to exit; read" &'
+interval = 60
+
+[workspaces]
+enable_workspace_filling = true
+
+[window_title]
+mode = "Class"
+truncate_title_after_length = 50
+
+[media_player]
+max_title_length = 50
+
+[system_info]
+indicators = [ "Cpu", "Memory", "Temperature" ]
+interval = 1
+
+[system_info.cpu]
+warn_threshold = 75
+alert_threshold = 90
+
+[system_info.memory]
+warn_threshold = 75
+alert_threshold = 90
+
+[system_info.disk]
+mounts = ["/", "/home"]
+warn_threshold = 80
+alert_threshold = 90
+format = "Percentage"
+
+[system_info.temperature]
+warn_threshold = 75
+alert_threshold = 90
+
+[tempo]
+clock_format = "%T"
+
+[settings]
+lock_cmd = "playerctl --all-players pause; hyprlock &"
+audio_sinks_more_cmd = "pavucontrol -t 3"
+audio_sources_more_cmd = "pavucontrol -t 4"
+wifi_more_cmd = "nm-connection-editor"
+vpn_more_cmd = "nm-connection-editor"
+bluetooth_more_cmd = "blueman-manager"
+shutdown_cmd = "systemctl poweroff"
+suspend_cmd = "systemctl suspend"
+hibernate_cmd = "systemctl hibernate"
+reboot_cmd = "systemctl reboot"
+logout_cmd = "loginctl kill-user $(whoami)"
+brightness_indicator_format = "Icon"
+battery_format = "IconAndPercentage"
+indicators = ["IdleInhibitor", "PowerProfile", "Network", "Vpn", "Bluetooth", "Brightness", "Microphone", "Audio", "Battery"]
+enable_tooltips = false
+
+[animations]
+enabled = true
+
+[appearance]
+style = "Islands"
+scale_factor = 1.0
+font_name = "Hack Nerd Font Mono"
+opacity = 0.80
+primary_color = "#2f66ca"
+success_color   = "#308e63"
+warning_color = "#fd7d00"
+danger_color = "#bf1717"
+text_color = "#d9ddf1"
+workspace_colors = [ "#7aa2f7", "#2550a3" ]
+
+[appearance.menu]
+opacity = 0.90
+
+[appearance.background_color]
+base = "#040115"
+weak = "#08062d"
+strong = "#111030"
+

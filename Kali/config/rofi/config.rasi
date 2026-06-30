@@ -1,0 +1,50 @@
+configuration {
+    /* General */
+    modi: "drun,run,window,ssh";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    display-drun: "Apps";
+    display-run:    "Run";
+    display-window: "Windows";
+    display-ssh:    "SSH";
+    drun-display-format: "{name}";
+
+    /* Prompt prefix */
+    drun-match-fields:   "name,generic,exec,categories,keywords";
+    window-format:       "{w}    {c}   {t}";
+
+    /* Behavior */
+    hover-select: false;
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
+    sort: true;
+    sorting-method: "fzf";
+
+    /* Matching */
+    matching: "fuzzy";
+    case-sensitive: false;
+
+    /* Terminal */
+    terminal: "kitty";
+
+    /* SSH */
+    ssh-client: "ssh";
+    ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";
+
+    /* Performance */
+    lazy-grab: false;
+
+    /* Keybindings */
+    kb-mode-next: "Shift+Right,Control+Tab";
+    kb-mode-previous: "Shift+Left,Control+Shift+Tab";
+    kb-row-up: "Up,Control+k";
+    kb-row-down: "Down,Control+j";
+    kb-accept-entry: "Return,KP_Enter";
+    kb-remove-to-eol: "";
+    kb-mode-complete: "";
+    kb-row-select: "Control+space";
+    kb-cancel: "Escape";
+}
+
+/* Import theme */
+@theme "ocean-dark"

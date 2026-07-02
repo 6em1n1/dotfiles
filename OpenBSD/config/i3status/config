@@ -40,7 +40,6 @@ ipv6 {
 wireless _first_ {
         format_up = "W: %quality %ip"
         format_down = "W: down"
-        low_threshold = 40
 }
 
 ethernet _first_ {
@@ -63,8 +62,6 @@ volume master {
 
 load {
         format = "LOA %1min"
-        degraded_threshold = "1.5"
-        max_threshold = "2.5"
 }
 
 # battery all {

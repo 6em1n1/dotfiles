@@ -2,13 +2,13 @@
 
 # Set common variables
 set $mod Mod4
-set $terminal kitty
+set $terminal alacritty
 set $editor nvim
 set $browser firefox
 set $taskmanager btop
 set $irc irssi
 set $menu rofi
-set $wallpaper /home/gemini/Pictures/Wallpapers/openbsd_tokyonight.png
+set $wallpaper ~/Pictures/Wallpapers/openbsd_tokyonight.png
 
 # Graphical settings
 gaps inner 5

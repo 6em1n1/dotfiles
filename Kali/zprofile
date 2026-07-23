@@ -1,0 +1,6 @@
+# 6em1n1's .zprofile
+
+# Start Hyprland (uwsm)
+if uwsm check may-start; then
+	exec uwsm start hyprland-uwsm.desktop
+fi

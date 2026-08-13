@@ -1,0 +1,14 @@
+### 6em1n1's config for swayfx
+
+## Configuration files
+
+include ~/.config/sway/config.d/variables.conf
+include ~/.config/sway/config.d/autostart.conf
+# include ~/.config/sway/config.d/swayidle.conf
+include ~/.config/sway/config.d/keyboard.conf
+# include ~/.config/sway/config.d/touchpad.conf
+include ~/.config/sway/config.d/eyecandy.conf
+include ~/.config/sway/config.d/keybindings.conf
+include ~/.config/sway/config.d/screenshots.conf
+include ~/.config/sway/config.d/windows.conf
+include ~/.config/sway/config.d/swaybar.conf
